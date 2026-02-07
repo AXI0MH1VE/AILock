@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<pfsense>
+	<version>22.5</version>
+	<aliases>
+		<alias>
+			<name>OpenAI_Domains</name>
+			<type>host</type>
+			<address>api.openai.com chatgpt.com auth.openai.com oaistatic.com chatgpt.livekit.cloud</address>
+			<descr>Allowed OpenAI domains for corporate access</descr>
+		</alias>
+	</aliases>
+	<filter>
+		<rule>
+			<type>pass</type>
+			<interface>lan</interface>
+			<ipprotocol>inet</ipprotocol>
+			<protocol>tcp</protocol>
+			<source>
+				<any/>
+			</source>
+			<destination>
+				<address>OpenAI_Domains</address>
+				<port>443</port>
+			</destination>
+			<descr>Allow traffic to OpenAI domains</descr>
+		</rule>
+		<rule>
+			<type>block</type>
+			<interface>lan</interface>
+			<ipprotocol>inet</ipprotocol>
+			<protocol>any</protocol>
+			<source>
+				<any/>
+			</source>
+			<destination>
+				<any/>
+			</destination>
+			<descr>Block all other outbound traffic (Shadow AI Prevention)</descr>
+		</rule>
+	</filter>
+</pfsense>
