@@ -1,4 +1,4 @@
-# AILock: Sovereign AI Security Gateway
+# AILock:AI Security Gateway
 **CREATED BY: NICHOLAS M. GROSSI**
 AILock is a comprehensive, network-level security system designed to prevent data siphoning and ensure compliance with data privacy standards (GDPR, CCPA) when using AI services.
 
